@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import Pedido from '../support/page_objects/pedidoCompleto.page'
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
@@ -14,7 +15,8 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     });
 
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
-        //TODO 
+        Pedido.pedidoCompleto()
+        cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.')
     });
 
 
